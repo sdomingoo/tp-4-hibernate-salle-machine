@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Paramètres de connexion JDBC MySQL / MariaDB -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/db_tp_hibernate?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">1234</property>
+
+        <!-- Dialecte Hibernate pour MySQL 8+ / MariaDB -->
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Stratégie de génération du schéma relationnel -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Affichage et formatage des requêtes SQL générées -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- Déclaration des entités annotées -->
+        <mapping class="entities.Salle"/>
+        <mapping class="entities.Machine"/>
+    </session-factory>
+</hibernate-configuration>
